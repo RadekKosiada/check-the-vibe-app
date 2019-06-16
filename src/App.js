@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import SubmitForm from './components/SubmitForm';
 
 function App() {

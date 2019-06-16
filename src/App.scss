@@ -1,0 +1,39 @@
+
+$main-color: black;
+$second-color: white;
+$main-font: 'Work Sans', sans-serif;
+$button-width: 70px;
+
+.border {
+  border: 2px solid $main-color;
+}
+
+.App {
+  text-align: center;
+  font-family: $main-font;
+}
+
+textarea {
+  width: 350px;
+  height: 250px;
+  @extend .border;
+  font-family: $main-font;
+  font-size: 1em;
+  opacity: 0.65;
+  padding: 10px;
+}
+
+button {
+  display: inline-block;
+  width: $button-width;
+  background-color: $second-color;
+  @extend .border;
+  font-family: $main-font;
+  margin: 20px 10px;
+  outline: none;
+}
+
+button:hover {
+  background-color: $main-color;
+  color: $second-color;
+}

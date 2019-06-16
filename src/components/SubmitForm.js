@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.css";
+import "../App.scss";
 import secret from "../secret.json";
 
 export default class SubmitForm extends Component {
@@ -47,11 +47,11 @@ export default class SubmitForm extends Component {
     }
   }
   handleSubmit() {
-    this.sendToAnalyze();
+    // this.sendToAnalyze();
   }
   handleKeyPress(e) {
     if(e.key === 'Enter') {
-      this.sendToAnalyze();
+      this.handleSubmit();
     }
   }
   cleanTextarea() {
