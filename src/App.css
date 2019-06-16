@@ -8,6 +8,10 @@ textarea {
   width: 350px;
   height: 250px;
   border: 2px solid black;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  opacity: 0.65;
+  padding: 10px;
 }
 
 button {

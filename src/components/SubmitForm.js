@@ -44,13 +44,17 @@ export default class SubmitForm extends Component {
   handleSubmit() {
     this.sendToAnalyze();
   }
-  render() {        
+  render() {    
+    {this.state.response === "positive" && (document.body.style.backgroundColor = 'green')}
+    {this.state.response === "negative" && (document.body.style.backgroundColor = 'red')}
+    {this.state.response === "neutral" && (document.body.style.backgroundColor = 'lightgrey')}
     return (
       <div>
         <textarea onChange={this.handleChange}></textarea>
         <button onClick={this.handleSubmit}>Submit</button>
         {this.state.response === "positive" && (<h1>:)</h1>)}
         {this.state.response === "negative" && (<h1>:(</h1>)}
+        {this.state.response === "neutral" && (<h1>:|</h1>)}
       </div>
     );
   }
