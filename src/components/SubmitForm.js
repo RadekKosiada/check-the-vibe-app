@@ -10,10 +10,11 @@ export default class SubmitForm extends Component {
       stringToCheck: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     console.log("did mount");
-    this.sendToAnalyze();
+    
   }
   async sendToAnalyze() {
     try {
@@ -40,14 +41,16 @@ export default class SubmitForm extends Component {
       stringToCheck: e.target.value
     })
   }
-  render() { 
-       
+  handleSubmit() {
+    this.sendToAnalyze();
+  }
+  render() {        
     return (
       <div>
         <textarea onChange={this.handleChange}></textarea>
+        <button onClick={this.handleSubmit}>Submit</button>
         {this.state.response === "positive" && (<h1>:)</h1>)}
         {this.state.response === "negative" && (<h1>:(</h1>)}
-        <p>{this.state.stringToCheck}</p>
       </div>
     );
   }
