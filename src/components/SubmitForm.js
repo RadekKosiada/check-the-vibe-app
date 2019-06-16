@@ -5,7 +5,9 @@ import secret from "../secret.json";
 export default class SubmitForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      response: ''
+    };
     
   }
   componentDidMount() {
@@ -21,20 +23,24 @@ export default class SubmitForm extends Component {
         "X-RapidAPI-Host": secret["X-RapidAPI-Host"],
         "X-RapidAPI-Key": secret["X-RapidAPI-Key"]
       }, 
-      body: "text=great value in its price range!"
+      body: "text=bad value in its price range!"
     }
       ); const data = await response.json();
-      this.setState({});
+      this.setState({
+        response: data.type
+      });
       console.log(data);
     } catch(err) {
       console.log(err.message);
     }
   }
-  render() {
-    
+  render() { 
+       
     return (
       <div>
- 
+        <textarea></textarea>
+        {this.state.response === "positive" && (<h1>:)</h1>)}
+        {this.state.response === "negative" && (<h1>:(</h1>)}
       </div>
     );
   }
