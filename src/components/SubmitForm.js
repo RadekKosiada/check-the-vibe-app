@@ -42,6 +42,9 @@ export default class SubmitForm extends Component {
     this.setState({
       stringToCheck: e.target.value
     })
+    if(e.target.value =='') {
+      this.cleanTextarea();
+    }
   }
   handleSubmit() {
     this.sendToAnalyze();
@@ -53,9 +56,11 @@ export default class SubmitForm extends Component {
   }
   cleanTextarea() {
     this.setState({
-      stringToCheck: ''
+      stringToCheck: '',
+      response: ''
     })
     document.getElementById("textarea").value = '';
+    document.body.style.backgroundColor = 'white';
   }
   render() {    
     {this.state.response === "positive" && (document.body.style.backgroundColor = 'green')}
