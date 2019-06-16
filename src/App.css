@@ -15,12 +15,12 @@ textarea {
 }
 
 button {
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+  width: 70px;
   background-color: white;
   border: 2px solid black;
   font-family: 'Work Sans', sans-serif;
-  margin-top: 20px;
+  margin: 20px 10px;
   outline: none;
 }
 button:hover {

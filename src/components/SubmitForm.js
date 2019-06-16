@@ -11,6 +11,8 @@ export default class SubmitForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.cleanTextarea = this.cleanTextarea.bind(this);
   }
   componentDidMount() {
     console.log("did mount");
@@ -44,14 +46,28 @@ export default class SubmitForm extends Component {
   handleSubmit() {
     this.sendToAnalyze();
   }
+  handleKeyPress(e) {
+    if(e.key === 'Enter') {
+      this.sendToAnalyze();
+    }
+  }
+  cleanTextarea() {
+    this.setState({
+      stringToCheck: ''
+    })
+    document.getElementById("textarea").value = '';
+  }
   render() {    
     {this.state.response === "positive" && (document.body.style.backgroundColor = 'green')}
     {this.state.response === "negative" && (document.body.style.backgroundColor = 'red')}
     {this.state.response === "neutral" && (document.body.style.backgroundColor = 'lightgrey')}
     return (
       <div>
-        <textarea onChange={this.handleChange}></textarea>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <textarea id="textarea" onChange={this.handleChange} onKeyDown={this.handleKeyPress}></textarea>
+        <div>
+        <button onClick={this.cleanTextarea}>Clean</button>
+          <button onClick={this.handleSubmit}>Submit</button>          
+        </div>        
         {this.state.response === "positive" && (<h1>:)</h1>)}
         {this.state.response === "negative" && (<h1>:(</h1>)}
         {this.state.response === "neutral" && (<h1>:|</h1>)}
