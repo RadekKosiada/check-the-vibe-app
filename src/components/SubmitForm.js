@@ -6,9 +6,10 @@ export default class SubmitForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: ''
+      response: '',
+      stringToCheck: ''
     };
-    
+    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
     console.log("did mount");
@@ -23,7 +24,7 @@ export default class SubmitForm extends Component {
         "X-RapidAPI-Host": secret["X-RapidAPI-Host"],
         "X-RapidAPI-Key": secret["X-RapidAPI-Key"]
       }, 
-      body: "text=bad value in its price range!"
+      body: `text=${this.state.stringToCheck}`
     }
       ); const data = await response.json();
       this.setState({
@@ -34,13 +35,19 @@ export default class SubmitForm extends Component {
       console.log(err.message);
     }
   }
+  handleChange(e) {
+    this.setState({
+      stringToCheck: e.target.value
+    })
+  }
   render() { 
        
     return (
       <div>
-        <textarea></textarea>
+        <textarea onChange={this.handleChange}></textarea>
         {this.state.response === "positive" && (<h1>:)</h1>)}
         {this.state.response === "negative" && (<h1>:(</h1>)}
+        <p>{this.state.stringToCheck}</p>
       </div>
     );
   }
