@@ -29,7 +29,6 @@ export default class SubmitForm extends Component {
       this.setState({
         response: data.type
       });
-      console.log(data);
     } catch(err) {
       console.log(err.message);
     }
