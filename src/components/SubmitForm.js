@@ -14,10 +14,6 @@ export default class SubmitForm extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.cleanTextarea = this.cleanTextarea.bind(this);
   }
-  componentDidMount() {
-    console.log("did mount");
-    
-  }
   async sendToAnalyze() {
     try {
       const response = await fetch("https://twinword-sentiment-analysis.p.rapidapi.com/analyze/",
