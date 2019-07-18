@@ -47,7 +47,7 @@ export default class SubmitForm extends Component {
     }
   }
   handleSubmit() {
-    // this.sendToAnalyze();
+    this.sendToAnalyze();
   }
   handleKeyPress(e) {
     if(e.key === 'Enter') {
